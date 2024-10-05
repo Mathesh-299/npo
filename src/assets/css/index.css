@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.container {
+    max-width: 100%; /* Full width by default */
+    width: 100%; /* Full width by default */
+    padding-left: 1rem; /* Padding on the left */
+    padding-right: 1rem; /* Padding on the right */
+  }
+  
+  /* Responsive widths for different screen sizes */
+  @media (min-width: 640px) { /* sm */
+    .container {
+      max-width: 640px;
+    }
+  }
+  
+  @media (min-width: 768px) { /* md */
+    .container {
+      max-width: 768px;
+    }
+  }
+  
+  @media (min-width: 1024px) { /* lg */
+    .container {
+      max-width: 1024px;
+    }
+  }
+  
+  @media (min-width: 1280px) { /* xl */
+    .container {
+      max-width: 1280px;
+    }
+  }
+  
+  @media (min-width: 1536px) { /* 2xl */
+    .container {
+      max-width: 1536px;
+    }
+  }
+  
