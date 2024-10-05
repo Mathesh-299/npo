@@ -1,50 +1,98 @@
-// src/pages/DonationPage.js
-import React from 'react';
+// src/pages/Donation.js
+import React, { useState } from 'react';
 
 const Donation = () => {
-    return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
-            <h1 className="text-4xl font-bold mb-4 text-center text-gray-800">Support Our Cause</h1>
-            <p className="text-lg text-gray-600 mb-6 text-center">
-                Your generous donation helps us provide essential services to those in need. Thank you for making a difference!
-            </p>
+  const [visible, setVisible] = useState(false);
 
-            <form className="bg-white rounded-lg p-6 shadow-md w-full max-w-lg">
-                <h2 className="text-2xl font-semibold mb-4 text-gray-800">Donation Form</h2>
-                
-                <label className="block mb-2 text-gray-700" htmlFor="name">Name:</label>
+  const handleDonateClick = () => {
+    setVisible(true); // Show the donation form
+  };
+
+  const handleClose = () => {
+    setVisible(false); // Hide the donation form
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-light-blue-200 p-4">
+      <h2 className="text-4xl font-bold mb-6 text-center text-gray-800">Make a Donation</h2>
+      <button
+        onClick={handleDonateClick}
+        className="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-green-700 transition-colors duration-300"
+      >
+        Donate Now
+      </button>
+
+      {visible && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
+          <div className="bg-white rounded-lg p-6 max-w-lg mx-auto relative">
+            <button
+              onClick={handleClose}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            >
+              X {/* Close button */}
+            </button>
+            <h3 className="text-2xl font-bold mb-4 text-center">Donation Form</h3>
+            <form className='space-y-4'> {/* Added spacing between form elements */}
+              <div className="mb-4">
+                <label className="block text-gray-700">Name:</label>
                 <input
-                    type="text"
-                    id="name"
-                    className="w-full p-2 border border-gray-300 rounded mb-4"
-                    placeholder="Enter your name"
+                  type="text"
+                  required
+                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
                 />
-
-                <label className="block mb-2 text-gray-700" htmlFor="email">Email:</label>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Email:</label>
                 <input
-                    type="email"
-                    id="email"
-                    className="w-full p-2 border border-gray-300 rounded mb-4"
-                    placeholder="Enter your email"
+                  type="email"
+                  required
+                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
                 />
-
-                <label className="block mb-2 text-gray-700" htmlFor="amount">Donation Amount:</label>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Phone Number:</label>
                 <input
-                    type="number"
-                    id="amount"
-                    className="w-full p-2 border border-gray-300 rounded mb-4"
-                    placeholder="Enter amount"
+                  type="tel"
+                  required
+                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
                 />
-
-                <button
-                    type="submit"
-                    className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition duration-300"
-                >
-                    Donate Now
-                </button>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Address:</label>
+                <input
+                  type="text"
+                  required
+                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Donation Amount:</label>
+                <input
+                  type="number"
+                  required
+                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700">Message:</label>
+                <textarea
+                  rows="4"
+                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
+                  placeholder="Optional message"
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300 w-full"
+              >
+                Submit Donation
+              </button>
             </form>
+          </div>
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Donation;

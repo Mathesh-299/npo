@@ -1,7 +1,7 @@
 // src/components/EducationProvider.js
 import React from 'react';
 
-const Education = () => {
+const Education = ({ onDonateClick }) => {
     const providers = [
         {
             id: 1,
@@ -117,7 +117,10 @@ const Education = () => {
                             rel="noopener noreferrer"
                             className="inline-block mt-4 bg-gradient-to-r from-green-400 to-green-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-gradient-to-l transition-all duration-300"
                         >
-                            Donate Now
+                            <button>
+                                Donate Now
+                            </button>
+
                         </a>
                     </div>
                 ))}
