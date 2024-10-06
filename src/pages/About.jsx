@@ -1,6 +1,6 @@
 import { User2 } from 'lucide-react';
 import React from 'react';
-// import PRO from '../assets/img/PRO.jpg';
+import PRO from '../assets/img/image2.jpg';
 
 const About = () => {
   return (
@@ -8,7 +8,7 @@ const About = () => {
       <div className="min-h-screen w-full bg-gradient-to-b from-indigo-50 to-indigo-100">
         {/* Profile Image Section */}
         <div className="w-full flex justify-center items-center py-10">
-          {/* <img src={PRO} alt="pro" className="w-[80%] h-auto rounded-lg shadow-2xl border-4 border-white" /> */}
+          <img src={PRO} alt="pro" className="w-[80%] h-auto rounded-lg shadow-2xl border-4 border-white" />
         </div>
 
         {/* Vision Section */}
