@@ -103,42 +103,44 @@ const Blogs = () => {
 
       {/* Blog Form */}
       {showForm && (
-        <div className="mb-8 border p-8 rounded-lg bg-gray-100 shadow-md w-[50rem] h-[18rem]">
-          <h2 className="text-xl font-bold mb-2">Add New Blog</h2>
-          <input
-            type="text"
-            placeholder="Title"
-            value={newBlog.title}
-            onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
-            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700  hover:bg-white font-bold gap-4"
-          />
-          <textarea
-            placeholder="Content"
-            value={newBlog.content}
-            onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
-            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700  hover:bg-white font-bold gap-4"
-          />
-          <input
-            type="text"
-            placeholder="Image URL"
-            value={newBlog.image}
-            onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
-            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700  hover:bg-white font-bold"
-          />
-          <button
-            onClick={handleAddBlog}
-            className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600"
-          >
-            Submit
-          </button>
-          <button
-            onClick={() => setShowForm(false)}
-            className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600 ml-2"
-          >
-            Cancel
-          </button>
-        </div>
-      )}
+  <div className="mb-8 border p-8 rounded-lg bg-gray-100 shadow-md w-[50rem]">
+    <h2 className="text-xl font-bold mb-4">Add New Blog</h2>
+    <input
+      type="text"
+      placeholder="Title"
+      value={newBlog.title}
+      onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
+      className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
+    />
+    <textarea
+      placeholder="Content"
+      value={newBlog.content}
+      onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
+      className="w-full h-[6rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
+    />
+    <input
+      type="text"
+      placeholder="Image URL"
+      value={newBlog.image}
+      onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
+      className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
+    />
+    <div className="flex gap-2">
+      <button
+        onClick={handleAddBlog}
+        className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600"
+      >
+        Submit
+      </button>
+      <button
+        onClick={() => setShowForm(false)}
+        className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+)}
 
       {/* Blog List */}
       {currentBlogs.map((blog, index) => (

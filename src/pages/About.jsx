@@ -1,12 +1,12 @@
-import React from 'react';
-// import PRO from '../assets/img/PRO.jpg'
 import { User2 } from 'lucide-react';
+import React from 'react';
+import PRO from '../assets/img/PRO.jpg';
 const About = () => {
   return (
     <>
       <div className="h-screen w-full">
         <div className="w-full h-full flex justify-center items-center">
-          {/* <img src={PRO} alt="pro" className="w-[80%] h-full" /> */}
+          <img src={PRO} alt="pro" className="w-[80%] h-full" />
         </div>
         <div className="w-full h-[80%] flex justify-center items-start">
           <div className="w-[70%] h-[100%] flex justify-center items-center flex-col">
