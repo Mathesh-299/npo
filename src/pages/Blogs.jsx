@@ -103,27 +103,27 @@ const Blogs = () => {
 
       {/* Blog Form */}
       {showForm && (
-        <div className="mb-8 border p-4 rounded-lg bg-gray-100 shadow-md">
+        <div className="mb-8 border p-8 rounded-lg bg-gray-100 shadow-md w-[50rem] h-[18rem]">
           <h2 className="text-xl font-bold mb-2">Add New Blog</h2>
           <input
             type="text"
             placeholder="Title"
             value={newBlog.title}
             onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
-            className="border p-2 mb-2 w-full rounded outline-none active:outline-none hover:border-b-2 focus:border-purple-600"
+            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700  hover:bg-white font-bold gap-4"
           />
           <textarea
             placeholder="Content"
             value={newBlog.content}
             onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
-            className="border p-2 mb-2 w-full rounded"
+            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700  hover:bg-white font-bold gap-4"
           />
           <input
             type="text"
             placeholder="Image URL"
             value={newBlog.image}
             onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
-            className="border p-2 mb-2 w-full rounded"
+            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700  hover:bg-white font-bold"
           />
           <button
             onClick={handleAddBlog}
