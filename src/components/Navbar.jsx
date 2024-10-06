@@ -15,10 +15,10 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-8 font-bold text-xl">
             {/* <Link to="/" className="hover:text-gray-300">Home</Link> */}
             <Link to="/services" className='hover:text-gray-300'>Services</Link>
-            <Link to="/events" className="hover:text-gray-300">Events</Link>
+            <Link to="/admin" className="hover:text-gray-300">Admin</Link>
             <Link to="/donation" className="hover:text-gray-300">Donation</Link>
             {/* <Link to="/volunteer" className="hover:text-gray-300">Volunteer</Link> */}
-            <Link to="/blogs" className="hover:text-gray-300">Blogs</Link>
+            {/* <Link to="/blogs" className="hover:text-gray-300">Blogs</Link> */}
             <Link to="/about" className="hover:text-gray-300">About Us</Link>
             <Link to="/contact" className="hover:text-gray-300">Contact</Link>
             <Link to="/logout" className="hover:text-gray-300">Logout</Link>

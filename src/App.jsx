@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Events from './pages/Events'; // Import the Events component
+import Admin from './pages/Admin'; // Import the Events component
 import Home from './pages/Home'; // Import the Home component
 import Services from './pages/Services'; // Import the Services component
 //import Admin from './pages/Admin'; // Import the Admin component
@@ -18,10 +18,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/events" element={<Events />} />
+        <Route path="/Admin" element={<Admin />} />
          <Route path="/donation" element={<Donation />} />
         {/* <Route path="/volunteer" element={<Volunteer />} />  */}
-        <Route path="/blogs" element={<Blogs />} />
+        {/* <Route path="/blogs" element={<Blogs />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/logout" element={<Logout />} />

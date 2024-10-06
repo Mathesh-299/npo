@@ -1,4 +1,3 @@
-// src/pages/Donation.js
 import React, { useState } from 'react';
 
 const Donation = () => {
@@ -31,13 +30,31 @@ const Donation = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-200 p-4">
-      <h2 className="text-4xl font-bold mb-6 text-center text-gray-800">Make a Donation</h2>
+    <div
+      className="flex flex-col items-center justify-center min-h-screen p-4 bg-cover bg-center"
+      style={{
+        backgroundImage: 'url("https://i.pinimg.com/736x/75/a8/a6/75a8a6baf1eacdb72dabf731bf00bf5e.jpg")',
+      }}
+    >
+      <h2 className="text-4xl font-bold mb-6 text-center text-white"></h2>
+
+      {/* Section about the importance of donation */}
+      <div className="text-center mb-6 text-lg text-white max-w-3xl bg-black bg-opacity-50 p-6 rounded-md">
+        {/* <p>
+          Your generosity fuels our mission. Every contribution helps us reach more people, deliver vital services, and
+          make a lasting impact in our communities. By donating today, you’re not just giving funds,
+          you’re giving hope and creating opportunities for those in need.
+        </p>
+        <p className="mt-2">
+          Together, we can build a brighter future. No donation is too small, and every act of kindness matters.
+          Help us continue the vital work that changes lives for the better.
+        </p> */}
+      </div>
+
       <button
         onClick={handleDonateClick}
         className="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-green-700 transition-colors duration-300"
-      >
-        Donate Now
+      > Donate Now
       </button>
 
       {/* Success message */}
@@ -56,7 +73,7 @@ const Donation = () => {
 
       {visible && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-          <div className="bg-white rounded-lg p-6 max-w-lg mx-auto relative">
+          <div className="w-[50%] bg-white rounded-lg p-6 max-w-lg mx-auto relative">
             <button
               onClick={handleClose}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -64,8 +81,8 @@ const Donation = () => {
               &times; {/* Close button */}
             </button>
             <h3 className="text-2xl font-bold mb-4 text-center">Donation Form</h3>
-            <form className='space-y-4' onSubmit={handleSubmit}>
-              <div className="mb-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <div className="mb-4 w-[50%]">
                 <label className="block text-gray-700">Name:</label>
                 <input
                   type="text"

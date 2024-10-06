@@ -37,7 +37,7 @@ const Home = () => {
         </p>
         <Link to="/volunteer">
           <button className="bg-green-600 hover:bg-green-700 text-white text-xl font-semibold py-3 px-6 rounded-lg">
-            Volunteer with Us
+            Contact Us
           </button>
         </Link>
       </div>
