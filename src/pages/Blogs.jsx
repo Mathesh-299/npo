@@ -110,7 +110,7 @@ const Blogs = () => {
             placeholder="Title"
             value={newBlog.title}
             onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
-            className="border p-2 mb-2 w-full rounded"
+            className="border p-2 mb-2 w-full rounded outline-none active:outline-none hover:border-b-2 focus:border-purple-600"
           />
           <textarea
             placeholder="Content"
