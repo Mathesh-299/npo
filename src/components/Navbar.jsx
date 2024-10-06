@@ -29,12 +29,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className={`text-lg font-bold ${textColor}`}>
+          <div className={`text-lg font-bold ${textColor} font-poppins`}>
             <Link to="/" className="hover:text-gray-300">HOME</Link>
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex space-x-8 font-bold text-xl">
+          <div className="hidden md:flex space-x-8 font-bold text-xl font-poppins">
             <Link to="/services" className={`hover:text-gray-300 ${textColor}`}>Services</Link>
             <Link to="/admin" className={`hover:text-gray-300 ${textColor}`}>Admin</Link>
             <Link to="/donation" className={`hover:text-gray-300 ${textColor}`}>Donation</Link>
