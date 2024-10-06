@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { X } from 'lucide-react'; // Importing the X icon from lucide-react
 
 const AdminLogin = () => {
   const emailRef = useRef(null);
@@ -29,9 +30,13 @@ const AdminLogin = () => {
     setShowAddService(true); // Show the Add Service form
   };
 
+  const handleCancelClick = () => {
+    setShowAddService(false); // Go back to the admin dashboard
+  };
+
   return (
     <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="w-full max-w-xs">
+      <div className="w-full max-w-xl">
         {!isLoggedIn ? (
           // Admin Login Form
           <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
@@ -89,38 +94,105 @@ const AdminLogin = () => {
           </div>
         ) : (
           // Add Service Form (no redirection)
-          <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div className="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className="absolute top-4 right-4 cursor-pointer" onClick={handleCancelClick}>
+              <X className="h-6 w-6 text-gray-500 hover:text-gray-700" /> {/* Using the X icon */}
+            </div>
             <h2 className="text-xl font-bold mb-4 text-center">Add a New Service</h2>
             <form>
+              {/* Service Name Title */}
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="serviceName">
-                  Service Name
+                  Service Name Title
                 </label>
                 <input
                   id="serviceName"
                   type="text"
-                  placeholder="Enter service name"
+                  placeholder="Enter service name title"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
                 />
               </div>
+
+              {/* Location (District, State, Pincode) */}
               <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="serviceDescription">
-                  Service Description
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
+                  Location
+                </label>
+                <input
+                  id="location"
+                  type="text"
+                  placeholder="District, State, Pincode"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  required
+                />
+              </div>
+
+              {/* Description About the Service */}
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
+                  Description About the Service
                 </label>
                 <textarea
-                  id="serviceDescription"
-                  placeholder="Enter service description"
+                  id="description"
+                  placeholder="Provide a detailed description of the service"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  rows="4"
+                  required
+                />
+              </div>
+
+              {/* Contact (Email) */}
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="contact">
+                  Contact (Email)
+                </label>
+                <input
+                  id="contact"
+                  type="email"
+                  placeholder="Enter email for contact"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
                 />
               </div>
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                Submit
-              </button>
+
+              {/* History of the Service */}
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="history">
+                  History of the Service
+                </label>
+                <textarea
+                  id="history"
+                  placeholder="Provide the history of the service"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  rows="3"
+                  required
+                />
+              </div>
+
+              {/* Impact of the Service */}
+              <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="impact">
+                  Impact of the Service
+                </label>
+                <textarea
+                  id="impact"
+                  placeholder="Describe the impact of this service"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  rows="3"
+                  required
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex items-center justify-center">
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                  Submit Service
+                </button>
+              </div>
             </form>
           </div>
         )}
