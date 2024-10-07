@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaTimes } from 'react-icons/fa'; // Importing cancel icon from react-icons
 
 const Donation = () => {
   const [visible, setVisible] = useState(false);
@@ -44,17 +45,18 @@ const Donation = () => {
           Your generosity fuels our mission. Every contribution helps us reach more people, deliver vital services, and
           make a lasting impact in our communities. By donating today, you’re not just giving funds,
           you’re giving hope and creating opportunities for those in need.
-        </p>
+        </p> */}
         <p className="mt-2">
           Together, we can build a brighter future. No donation is too small, and every act of kindness matters.
           Help us continue the vital work that changes lives for the better.
-        </p> */}
+        </p>
       </div>
 
       <button
         onClick={handleDonateClick}
         className="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-green-700 transition-colors duration-300"
-      > Donate Now
+      >
+        Donate Now
       </button>
 
       {/* Success message */}
@@ -73,21 +75,22 @@ const Donation = () => {
 
       {visible && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-          <div className="w-[50%] bg-white rounded-lg p-6 max-w-lg mx-auto relative">
+          <div className="w-[90%] md:w-[70%] lg:w-[50%] bg-white rounded-lg p-6 max-w-lg mx-auto relative shadow-lg">
             <button
               onClick={handleClose}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 transition-colors duration-300"
             >
-              &times; {/* Close button */}
+              <FaTimes size={24} /> {/* Cancel icon */}
             </button>
             <h3 className="text-2xl font-bold mb-4 text-center">Donation Form</h3>
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <div className="mb-4 w-[50%]">
+            <form className="-space-y-1 gap-3" onSubmit={handleSubmit}>
+              <div className="mb-4">
                 <label className="block text-gray-700">Name:</label>
                 <input
                   type="text"
                   required
-                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
+                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400 gap-2"
+                  placeholder="Enter your name"
                 />
               </div>
               <div className="mb-4">
@@ -95,7 +98,8 @@ const Donation = () => {
                 <input
                   type="email"
                   required
-                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
+                  className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400 gap-2"
+                  placeholder="Enter your email"
                 />
               </div>
               <div className="mb-4">
@@ -104,6 +108,7 @@ const Donation = () => {
                   type="tel"
                   required
                   className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
+                  placeholder="Enter your phone number"
                 />
               </div>
               <div className="mb-4">
@@ -112,6 +117,7 @@ const Donation = () => {
                   type="text"
                   required
                   className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
+                  placeholder="Enter your address"
                 />
               </div>
               <div className="mb-4">
@@ -120,6 +126,7 @@ const Donation = () => {
                   type="number"
                   required
                   className="border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring focus:ring-green-400"
+                  placeholder="Enter donation amount"
                 />
               </div>
               <div className="mb-4">

@@ -44,7 +44,7 @@ const Contact = () => {
             <form
               ref={form}
               onSubmit={sendEmail}
-              className='rounded-lg w-full h-full flex flex-col justify-between gap-6 transition-all duration-300 ease-in-out bg-black p-8 shadow-2xl'
+              className='rounded-lg w-full h-full flex flex-col justify-between gap-6 transition-all duration-300 ease-in-out bg-black/40 p-8 shadow-2xl'
             >
               {/* Input Fields */}
               <input
