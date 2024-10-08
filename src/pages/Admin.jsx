@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
 import { X } from 'lucide-react';
+import React, { useRef, useState } from 'react';
 import { addProjects, addProjects1, addProjects2 } from '../ngo/api';
 
 const AdminLogin = () => {
@@ -8,9 +8,9 @@ const AdminLogin = () => {
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false); // New state for login status
   const [showAddService, setShowAddService] = useState(false); // State to show Add Service form
-  const [food,setfood]=useState(false)
-  const [edc,setedc]=useState(false)
-  const [shel,setshel]=useState(false)
+  const [food, setfood] = useState(false)
+  const [edc, setedc] = useState(false)
+  const [shel, setshel] = useState(false)
   // Hardcoded email and password for admin verification
   const adminEmail = 'admin@example.com';
   const adminPassword = 'password123';
@@ -19,7 +19,7 @@ const AdminLogin = () => {
     e.preventDefault();
     const enteredEmail = emailRef.current.value;
     const enteredPassword = passwordRef.current.value;
-    
+
     // Simple email and password verification
     if (enteredEmail === adminEmail && enteredPassword === adminPassword) {
       setIsLoggedIn(true); // Set login status to true
@@ -27,7 +27,7 @@ const AdminLogin = () => {
       setError('Invalid email or password.');
     }
   };
-  
+
   const handleAddServiceClick1 = () => {
     setShowAddService(true); // Show the Add Service form
     setedc(true);
@@ -46,11 +46,11 @@ const AdminLogin = () => {
     setfood(false);
     setedc(false);
   };
-  
+
   const handleCancelClick = () => {
     setShowAddService(false); // Go back to the admin dashboard
   };
-  
+
   const name = useRef(null);
   const location = useRef(null);
   const description = useRef(null);
@@ -60,7 +60,7 @@ const AdminLogin = () => {
   const submit = async (e) => {
     e.preventDefault();
     handleCancelClick()
-    const project={
+    const project = {
       name: name.current.value,
       location: location.current.value,
       description: description.current.value,
@@ -68,26 +68,23 @@ const AdminLogin = () => {
       history: history.current.value,
       impact: impact.current.value,
     }
-    try{
-      if(edc){
-      const response=await addProjects(project)
-      console.log(response)
+    try {
+      if (edc) {
+        const response = await addProjects(project)
+        console.log(response)
       }
-      else if(food)
-      {
-        const response=await addProjects1(project)
-      console.log(response)
+      else if (food) {
+        const response = await addProjects1(project)
+        console.log(response)
       }
-      else if(shel)
-      {
-        const response=await addProjects2(project)
-      console.log(response)
+      else if (shel) {
+        const response = await addProjects2(project)
+        console.log(response)
       }
-      }
-      catch(error)
-      {
-          console.log(error)
-      }
+    }
+    catch (error) {
+      console.log(error)
+    }
   };
 
   return (
@@ -136,33 +133,36 @@ const AdminLogin = () => {
             </div>
           </form>
         ) : !showAddService ? (
-          <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h2 className="text-xl font-bold mb-4 text-center">Welcome Admin</h2>
-            <p className="mb-6 text-gray-700">
+          <div className="bg-white shadow-lg rounded-lg px-10 pt-8 pb-10 mb-6 max-w-md mx-auto">
+            <h2 className="text-2xl font-extrabold text-gray-800 mb-6 text-center">
+              Welcome Admin
+            </h2>
+            <p className="mb-8 text-gray-600 text-center">
               You are now logged in as an admin. From here, you can manage services, events, and more for your platform.
               To add a new service, click the button below.
             </p>
-            <div className="flex gap-10">
-            <button
-              onClick={handleAddServiceClick1}
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Add Education
-            </button>
-            <button
-              onClick={handleAddServiceClick2}
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Add food
-            </button>
-            <button
-              onClick={handleAddServiceClick3}
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Add shelter
-            </button>
+            <div className="flex justify-around gap-4">
+              <button
+                onClick={handleAddServiceClick1}
+                className="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-600 hover:to-green-800 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md focus:outline-none focus:ring-4 focus:ring-green-300"
+              >
+                Add Education
+              </button>
+              <button
+                onClick={handleAddServiceClick2}
+                className="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-600 hover:to-green-800 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md focus:outline-none focus:ring-4 focus:ring-green-300"
+              >
+                Add Food
+              </button>
+              <button
+                onClick={handleAddServiceClick3}
+                className="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-600 hover:to-green-800 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md focus:outline-none focus:ring-4 focus:ring-green-300"
+              >
+                Add Shelter
+              </button>
             </div>
           </div>
+
         ) : (
           // Add Service Form (no redirection)
           <div className="relative bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -279,10 +279,10 @@ const AdminLogin = () => {
             </form>
           </div>
         )}
-        
-        
+
+
       </div>
-    </div>
+    </div>  
   );
 };
 
