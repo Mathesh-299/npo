@@ -3,7 +3,7 @@ import { FaBlog } from 'react-icons/fa'; // Make sure to install react-icons
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(true);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-green-50 text-center p-8 relative">
@@ -46,20 +46,18 @@ const Home = () => {
       </div>
 
       {/* Blog Icon Section */}
-      <div
-        className="fixed bottom-8 right-8 flex flex-col items-center cursor-pointer"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        aria-label="Blog Icon"
-        role="button"
-        tabIndex={0}
-        onKeyPress={(e) => e.key === 'Enter' && setIsHovered(true)} // Accessibility: allows keyboard navigation
-      >
+      <div className="fixed bottom-8 right-8 flex flex-col items-center cursor-pointer">
+        {/* // onMouseEnter={() => setIsHovered(true)}
+        // onMouseLeave={() => setIsHovered(false)}
+        // aria-label="Blog Icon"
+        // role="button"
+        // tabIndex={0}
+        // onKeyPress={(e) => e.key === 'Enter' && setIsHovered(true)}> */}
         {/* Blog Icon */}
-        <FaBlog className={`text-4xl text-gray-600 transition-transform duration-300 ${isHovered ? 'transform scale-125' : 'hover:text-blue-600'}`} />
-        
+        <FaBlog className={`text-4xl text-gray-600 transition-transform duration-300 `} />
+        <span className='absolute bottom-[-35px] text-sm text-white bg-black px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300'>Blogs</span>
         {/* Blog Box */}
-        {isHovered && (
+        
           <div className="bg-white p-4 rounded-lg shadow-lg mt-2 w-48 transition-transform duration-300">
             <h4 className="text-lg font-bold text-gray-800 mb-2">Explore Our Journey</h4>
             <p className="text-gray-600 mb-4">
@@ -71,7 +69,7 @@ const Home = () => {
               </button>
             </Link>
           </div>
-        )}
+        {/* )} */}
       </div>
     </div>
   );

@@ -4,8 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 const Navbar = () => {
   const [bgColor, setBgColor] = useState('bg-gray-800');
   const [textColor, setTextColor] = useState('text-white');
-  const [isOpen, setIsOpen] = useState(false); // State for mobile menu
-  const location = useLocation(); // To get the current route
+  const [isOpen, setIsOpen] = useState(false); 
+  
+  const location = useLocation(); 
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
