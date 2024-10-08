@@ -13,7 +13,7 @@ const AdminLogin = () => {
   const [shel, setshel] = useState(false)
   // Hardcoded email and password for admin verification
   const adminEmail = 'admin@example.com';
-  const adminPassword = 'password123';
+  const adminPassword = '123';
 
   const handleSubmit = (e) => {
     e.preventDefault();

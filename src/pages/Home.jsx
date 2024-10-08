@@ -3,7 +3,7 @@ import { FaBlog } from 'react-icons/fa'; // Make sure to install react-icons
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(true);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-green-50 text-center p-8 relative">
@@ -38,7 +38,7 @@ const Home = () => {
         <p className="text-lg text-gray-600 mb-4">
           The Volunteer page is where you can sign up to help make a difference in your community. Whether you have time to spare or specific skills to offer, your involvement will directly contribute to the success of our mission. Join a team of passionate individuals working to create positive change.
         </p>
-        <Link to="/volunteer">
+        <Link to="/Contact">
           <button className="bg-green-600 hover:bg-green-700 text-white text-xl font-semibold py-3 px-6 rounded-lg transition-all duration-300">
             Contact Us
           </button>
@@ -49,10 +49,10 @@ const Home = () => {
       <div
         className="fixed bottom-8 right-8 flex flex-col items-center cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        // onMouseLeave={() => setIsHovered(false)}
       >
         {/* Blog Icon */}
-        <FaBlog className={`text-4xl text-gray-600 transition-transform duration-300 ${isHovered ? 'transform scale-125' : 'hover:text-blue-600'}`} />
+        <FaBlog className={`text-4xl text-gray-600 transition-transform duration-300`} />
         
         {/* Blog Box */}
         {isHovered && (
