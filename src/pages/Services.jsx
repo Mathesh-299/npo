@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Education from '../Service/Education';
 import Food from '../Service/Food';
 import Shelter from '../Service/Shelter';
+import Donation from './Donation';
 
 const Services = () => {
     const [visible, setVisible] = useState(false);

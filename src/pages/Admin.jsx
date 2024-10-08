@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { X } from 'lucide-react'; // Importing the X icon from lucide-react
+import { X } from 'lucide-react';
+import { addProjects, addProjects1, addProjects2 } from '../ngo/api';
 
 const AdminLogin = () => {
   const emailRef = useRef(null);
@@ -7,17 +8,18 @@ const AdminLogin = () => {
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false); // New state for login status
   const [showAddService, setShowAddService] = useState(false); // State to show Add Service form
-
+  const [food,setfood]=useState(false)
+  const [edc,setedc]=useState(false)
+  const [shel,setshel]=useState(false)
   // Hardcoded email and password for admin verification
   const adminEmail = 'admin@example.com';
   const adminPassword = 'password123';
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const enteredEmail = emailRef.current.value;
     const enteredPassword = passwordRef.current.value;
-
+    
     // Simple email and password verification
     if (enteredEmail === adminEmail && enteredPassword === adminPassword) {
       setIsLoggedIn(true); // Set login status to true
@@ -25,13 +27,67 @@ const AdminLogin = () => {
       setError('Invalid email or password.');
     }
   };
-
-  const handleAddServiceClick = () => {
+  
+  const handleAddServiceClick1 = () => {
     setShowAddService(true); // Show the Add Service form
+    setedc(true);
+    setshel(false);
+    setfood(false)
   };
-
+  const handleAddServiceClick2 = () => {
+    setShowAddService(true); // Show the Add Service form
+    setfood(true);
+    setshel(false);
+    setedc(false);
+  };
+  const handleAddServiceClick3 = () => {
+    setShowAddService(true); // Show the Add Service form
+    setshel(true);
+    setfood(false);
+    setedc(false);
+  };
+  
   const handleCancelClick = () => {
     setShowAddService(false); // Go back to the admin dashboard
+  };
+  
+  const name = useRef(null);
+  const location = useRef(null);
+  const description = useRef(null);
+  const contact = useRef(null);
+  const history = useRef(null);
+  const impact = useRef(null);
+  const submit = async (e) => {
+    e.preventDefault();
+    handleCancelClick()
+    const project={
+      name: name.current.value,
+      location: location.current.value,
+      description: description.current.value,
+      contact: contact.current.value,
+      history: history.current.value,
+      impact: impact.current.value,
+    }
+    try{
+      if(edc){
+      const response=await addProjects(project)
+      console.log(response)
+      }
+      else if(food)
+      {
+        const response=await addProjects1(project)
+      console.log(response)
+      }
+      else if(shel)
+      {
+        const response=await addProjects2(project)
+      console.log(response)
+      }
+      }
+      catch(error)
+      {
+          console.log(error)
+      }
   };
 
   return (
@@ -53,6 +109,7 @@ const AdminLogin = () => {
                 placeholder="Enter admin email"
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 required
+                autoComplete="email" // Added autocomplete attribute
               />
             </div>
             <div className="mb-6">
@@ -66,6 +123,7 @@ const AdminLogin = () => {
                 placeholder="Enter password"
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 required
+                autoComplete="current-password" // Added autocomplete attribute
               />
             </div>
             <div className="flex items-center justify-between">
@@ -78,19 +136,32 @@ const AdminLogin = () => {
             </div>
           </form>
         ) : !showAddService ? (
-          // Welcome Message and Add Service Button
           <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <h2 className="text-xl font-bold mb-4 text-center">Welcome Admin</h2>
             <p className="mb-6 text-gray-700">
               You are now logged in as an admin. From here, you can manage services, events, and more for your platform.
               To add a new service, click the button below.
             </p>
+            <div className="flex gap-10">
             <button
-              onClick={handleAddServiceClick}
+              onClick={handleAddServiceClick1}
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
-              Add Service
+              Add Education
             </button>
+            <button
+              onClick={handleAddServiceClick2}
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Add food
+            </button>
+            <button
+              onClick={handleAddServiceClick3}
+              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Add shelter
+            </button>
+            </div>
           </div>
         ) : (
           // Add Service Form (no redirection)
@@ -99,7 +170,7 @@ const AdminLogin = () => {
               <X className="h-6 w-6 text-gray-500 hover:text-gray-700" /> {/* Using the X icon */}
             </div>
             <h2 className="text-xl font-bold mb-4 text-center">Add a New Service</h2>
-            <form>
+            <form onSubmit={submit}>
               {/* Service Name Title */}
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="serviceName">
@@ -108,9 +179,11 @@ const AdminLogin = () => {
                 <input
                   id="serviceName"
                   type="text"
+                  ref={name}
                   placeholder="Enter service name title"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
+                  autoComplete="off" // Add appropriate value if needed
                 />
               </div>
 
@@ -122,9 +195,11 @@ const AdminLogin = () => {
                 <input
                   id="location"
                   type="text"
+                  ref={location}
                   placeholder="District, State, Pincode"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
+                  autoComplete="address-level1" // Add appropriate autocomplete attribute
                 />
               </div>
 
@@ -135,10 +210,12 @@ const AdminLogin = () => {
                 </label>
                 <textarea
                   id="description"
+                  ref={description}
                   placeholder="Provide a detailed description of the service"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   rows="4"
                   required
+                  autoComplete="off" // Add appropriate value if needed
                 />
               </div>
 
@@ -149,10 +226,12 @@ const AdminLogin = () => {
                 </label>
                 <input
                   id="contact"
+                  ref={contact}
                   type="email"
                   placeholder="Enter email for contact"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
+                  autoComplete="email" // Added autocomplete attribute
                 />
               </div>
 
@@ -163,10 +242,12 @@ const AdminLogin = () => {
                 </label>
                 <textarea
                   id="history"
+                  ref={history}
                   placeholder="Provide the history of the service"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   rows="3"
                   required
+                  autoComplete="off" // Add appropriate value if needed
                 />
               </div>
 
@@ -178,9 +259,11 @@ const AdminLogin = () => {
                 <textarea
                   id="impact"
                   placeholder="Describe the impact of this service"
+                  ref={impact}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   rows="3"
                   required
+                  autoComplete="off" // Add appropriate value if needed
                 />
               </div>
 
@@ -196,6 +279,8 @@ const AdminLogin = () => {
             </form>
           </div>
         )}
+        
+        
       </div>
     </div>
   );
