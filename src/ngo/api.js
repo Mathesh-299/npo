@@ -13,4 +13,5 @@ const addProjects1=(projectdata)=>axios.post(`${API}/ngo1/add`,projectdata)
 const addProjects2=(projectdata)=>axios.post(`${API}/ngo2/add`,projectdata)
 const addProjects3=(projectdata)=>axios.post(`${API}/blog/add`,projectdata)
 
-export { getProjects,getProjects1,getProjects2,getProjectsbyID,getProjectsbyID1,getProjectsbyID2,addProjects,addProjects1,addProjects2,addProjects3,getProjects3,getProjectsbyID3};
+export { addProjects, addProjects1, addProjects2, addProjects3, getProjects, getProjects1, getProjects2, getProjects3, getProjectsbyID, getProjectsbyID1, getProjectsbyID2, getProjectsbyID3 };
+

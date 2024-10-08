@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
-import pro from '../assets/img/akupi.jpg';
-=======
 import { FaTimes } from 'react-icons/fa'; // Importing cancel icon from react-icons
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
 
 const Donation = () => {
     const [amount, setAmount] = useState('');
@@ -46,14 +42,6 @@ const Donation = () => {
                 </p>
             </div>
 
-<<<<<<< HEAD
-            <button
-                onClick={handleDonateClick}
-                className="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-green-700 transition-colors duration-300"
-            >
-                Donate Now
-            </button>
-=======
   return (
     <div
       className="flex flex-col items-center justify-center min-h-screen p-4 bg-cover bg-center"
@@ -174,7 +162,6 @@ const Donation = () => {
     </div>
   );
 };
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
 
             {successMessage && (
                 <div className="mt-4 p-4 bg-green-100 text-green-700 border border-green-400 rounded-md w-full max-w-md text-center">

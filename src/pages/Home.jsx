@@ -88,13 +88,7 @@ const Home = () => {
             </div>
           )}
           <div className="fixed bottom-8 right-8 flex flex-col items-center cursor-pointer">
-            {/* // onMouseEnter={() => setIsHovered(true)}
-        // onMouseLeave={() => setIsHovered(false)}
-        // aria-label="Blog Icon"
-        // role="button"
-        // tabIndex={0}
-        // onKeyPress={(e) => e.key === 'Enter' && setIsHovered(true)}> */}
-            {/* Blog Icon */}
+       
             <FaBlog className={`text-4xl text-gray-600 transition-transform duration-300 `} />
             <span className='absolute bottom-[-35px] text-sm text-white bg-black px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300'>Blogs</span>
             {/* Blog Box */}
@@ -110,8 +104,6 @@ const Home = () => {
                 </button>
               </Link>
             </div>
-            {/* )} */}
-            {/* >>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267 */}
           </div>
         </div>
       </div>

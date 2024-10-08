@@ -11,10 +11,6 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.1.5",
-<<<<<<< HEAD
-    "axios": "^1.7.7",
-=======
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
     "emailjs-com": "^3.2.0",
     "lucide-react": "^0.447.0",
     "npo": "file:",

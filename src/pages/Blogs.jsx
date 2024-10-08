@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React, { useEffect, useRef, useState } from 'react';
-import { addProjects3, getProjects3 } from '../ngo/api';
-=======
 import React, { useState } from 'react';
 import blogImage1 from '../assets/img/0_Wg8lzJC41aYgQXLv.png';
 import blogImage4 from '../assets/img/employee-advocacy.png';
@@ -9,7 +5,6 @@ import blogImage5 from '../assets/img/fund.png';
 import blogImage6 from '../assets/img/image1.jpeg';
 import blogImage3 from '../assets/img/image2.jpg';
 import blogImage2 from '../assets/img/vol.png';
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
 
 // Blog component for individual blog posts
 const Blog = ({ title, content, image, isLeft }) => (
@@ -32,90 +27,6 @@ const Blog = ({ title, content, image, isLeft }) => (
 
 // Main Blogs component
 const Blogs = () => {
-<<<<<<< HEAD
-  
-  const [newBlog, setNewBlog] = useState({ title: '', content: '', image: '' });
-  const [showForm, setShowForm] = useState(false);
-  // New blog state for form inputs
-  const [currentBlogs, setCurBlog] = useState(null);
-  const blogsNew = async () => {
-    try {
-      const { data } = await getProjects3();
-      setCurBlog(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  // Add new blog
-  const handleAddBlog = async () => {
-    try {
-      const response = await addProjects3(newBlog);
-      console.log(response);
-      setShowForm(false)
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    blogsNew()
-    handleAddBlog()
-}, []);
-  if (!currentBlogs || currentBlogs.length === 0) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Add Blog Button */}
-      <div className="flex justify-center mb-4">
-        <button
-          onClick={() => setShowForm(true)}
-          className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg hover:scale-105 transition-transform"
-        >
-          Add Blog
-        </button>
-      </div>
-      {/* Blog Form */}
-      {showForm && (
-        <div className="mb-8 border p-8 rounded-lg bg-gray-100 shadow-md w-[50rem]">
-          <h2 className="text-xl font-bold mb-4">Add New Blog</h2>
-          <input
-            type="text"
-            placeholder="Title"
-            onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
-            value={newBlog.title}
-            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
-          />
-          <textarea
-            placeholder="Content"
-            value={newBlog.content}      
-            onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
-            className="w-full h-[6rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
-          />
-          <input
-            type="text"
-            placeholder="Image URL"
-            value={newBlog.image}   
-            onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
-            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
-          />
-          <div className="flex gap-2">
-            <button
-              onClick={handleAddBlog}
-              className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600"
-            >
-              Submit
-            </button>
-            <button
-              onClick={() => setShowForm(false)}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
-    );
-  }
-=======
   const [blogs, setBlogs] = useState([
     {
       title: "Empowering Communities Through Education",
@@ -177,16 +88,11 @@ const Blogs = () => {
       alert("Please fill in all fields.");
     }
   };
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       {/* Add Blog Button */}
-<<<<<<< HEAD
-      <div className="flex justify-center mb-4">
-=======
       <div className="flex justify-end mb-4">
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
         <button
           onClick={() => setShowForm(true)}
           className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-4 py-2 rounded-lg shadow-lg hover:scale-105 transition-transform"
@@ -194,52 +100,6 @@ const Blogs = () => {
           Add Blog
         </button>
       </div>
-<<<<<<< HEAD
-      {/* Blog Form */}
-      {showForm && (
-        <div className="mb-8 border p-8 rounded-lg bg-gray-100 shadow-md w-[50rem]">
-          <h2 className="text-xl font-bold mb-4">Add New Blog</h2>
-          <input
-            type="text"
-            placeholder="Title"
-            
-            onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
-            value={newBlog.title}
-            
-            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
-          />
-          <textarea
-            placeholder="Content"
-            value={newBlog.content}
-            
-      onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
-            className="w-full h-[6rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
-          />
-          <input
-            type="text"
-            placeholder="Image URL"
-            value={newBlog.image}
-            
-      onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
-            className="w-full h-[3rem] rounded-sm outline-none focus:border-b-2 hover:border-purple-700 hover:bg-white font-bold mb-4"
-          />
-          <div className="flex gap-2">
-            <button
-              onClick={handleAddBlog}
-              className="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600"
-            >
-              Submit
-            </button>
-            <button
-              onClick={() => setShowForm(false)}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-red-600"
-            >
-              Cancel
-            </button>
-          </div>
-        </div>
-      )}
-=======
 
       {/* Blog Form */}
       {showForm && (
@@ -281,7 +141,6 @@ const Blogs = () => {
     </div>
   </div>
 )}
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
 
       {/* Blog List */}
       {currentBlogs.map((blog, index) => (
@@ -293,8 +152,6 @@ const Blogs = () => {
           isLeft={index % 2 === 0} // Alternating layout
         />
       ))}
-<<<<<<< HEAD
-=======
 
       {/* Pagination Buttons */}
       <div className="flex justify-between mt-6">
@@ -317,7 +174,6 @@ const Blogs = () => {
           Next
         </button>
       </div>
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
     </div>
   );
 };

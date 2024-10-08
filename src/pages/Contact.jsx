@@ -44,11 +44,7 @@ const Contact = () => {
             <form
               ref={form}
               onSubmit={sendEmail}
-<<<<<<< HEAD
-              className='rounded-lg w-full h-full flex flex-col justify-between gap-6 transition-all duration-300 ease-in-out bg-black p-8 shadow-2xl'
-=======
               className='rounded-lg w-full h-full flex flex-col justify-between gap-6 transition-all duration-300 ease-in-out bg-black/40 p-8 shadow-2xl'
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
             >
               {/* Input Fields */}
               <input
@@ -119,8 +115,4 @@ const Contact = () => {
   );
 }
 
-<<<<<<< HEAD
 export default Contact;
-=======
-export default Contact;
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267

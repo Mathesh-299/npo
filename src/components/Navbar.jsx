@@ -52,18 +52,6 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation Links */}
-<<<<<<< HEAD
-          <div className="hidden md:flex space-x-8 font-bold text-xl">
-            {/* <Link to="/" className="hover:text-gray-300">Home</Link> */}
-            <Link to="/services" className='hover:text-gray-300'>Services</Link>
-            <Link to="/admin" className="hover:text-gray-300">Admin</Link>
-            <Link to="/donation" className="hover:text-gray-300">Donation</Link>
-            {/* <Link to="/volunteer" className="hover:text-gray-300">Volunteer</Link> */}
-            {/* <Link to="/blogs" className="hover:text-gray-300">Blogs</Link> */}
-            <Link to="/about" className="hover:text-gray-300">About Us</Link>
-            <Link to="/contact" className="hover:text-gray-300">Contact</Link>
-            {/* <Link to="/logout" className="hover:text-gray-300">Logout</Link> */}
-=======
           <div className="hidden md:flex space-x-8 font-bold text-xl font-roboto">
             {['services', 'admin', 'donation', 'about', 'contact', 'logout'].map((link) => (
               <Link
@@ -74,7 +62,6 @@ const Navbar = () => {
                 {link.charAt(0).toUpperCase() + link.slice(1)} {/* Capitalize first letter */}
               </Link>
             ))}
->>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
           </div>
         </div>
       </div>
