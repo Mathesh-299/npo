@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { X } from 'lucide-react';
 import React, { useRef, useState } from 'react';
 import { addProjects, addProjects1, addProjects2 } from '../ngo/api';
+=======
+import { X } from 'lucide-react'; // Importing the X icon from lucide-react
+import React, { useRef, useState } from 'react';
+>>>>>>> fb1063b4969616ff91840bb386f1e2cd9fff9267
 
 const AdminLogin = () => {
   const emailRef = useRef(null);
